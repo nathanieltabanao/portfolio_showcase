@@ -1,0 +1,113 @@
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Local env files
+.env
+.env.*
+!.env.example
+
+Here's a standard .gitignore file for a Vue.js project. This file helps you prevent unnecessary and generated files from being committed to your Git repository, keeping your repository clean and focused on your source code.
+
+# Node modules
+node_modules/
+dist/
+.env.local
+.env.*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.parcel-cache/
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.user
+*.pdb
+*.psess
+*.vspscc
+*.vssscc
+.env
+.DS_Store
+Thumbs.db
+coverage/
+*.log
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+# Build output
+/dist
+/build
+
+# Nuxt.js
+.nuxt/
+.output/
+
+# Vuepress
+.vuepress/dist/
+
+# Electron
+# node_modules is already ignored, but if you have a separate build output
+# for Electron (e.g., `app/dist` or similar), add it here.
+# For example:
+# /app/dist
+
+# Storybook
+.storybook/out/
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+*.spec.js.snap
+*.spec.ts.snap
+
+# Jest
+/coverage
+/.jest-cache
+
+# Dotenv files
+.env
+.env.*
+!.env.example # Don't ignore example env files
+!.env.development # Don't ignore development env files (optional, depending on workflow)
+!.env.production # Don't ignore production env files (optional, depending on workflow)
+
+# Local config file
+config.local.js
+config.local.json
