@@ -1,19 +1,21 @@
 <template>
-  <header class="bg-white py-4">
+  <header class="px-6 py-6">
     <nav class="container mx-auto flex justify-center">
-      <ul class="flex space-x-8">
+      <ul class="flex space-x-12 lg:space-x-16">
         <li>
-          <NuxtLink to="/" class="text-lg font-medium text-gray-700 hover:text-gray-900">
+          <NuxtLink
+            to="/"
+            class="rounded-md px-3 py-2 text-lg font-medium text-gray-700 transition-colors duration-200 hover:bg-gray-50 hover:text-gray-900"
+          >
             Home
           </NuxtLink>
         </li>
+
         <li>
-          <NuxtLink to="/contact" class="text-lg font-medium text-gray-700 hover:text-gray-900">
-            Contact
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/about" class="text-lg font-medium text-gray-700 hover:text-gray-900">
+          <NuxtLink
+            to="/about"
+            class="rounded-md px-3 py-2 text-lg font-medium text-gray-700 transition-colors duration-200 hover:bg-gray-50 hover:text-gray-900"
+          >
             About Me
           </NuxtLink>
         </li>

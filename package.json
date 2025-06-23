@@ -20,6 +20,7 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "@nuxtjs/google-fonts": "^3.2.0",
     "@primevue/auto-import-resolver": "^4.3.5",
     "@primevue/nuxt-module": "^4.3.5",
     "prettier": "^3.5.3",

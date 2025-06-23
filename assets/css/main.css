@@ -5,19 +5,34 @@
 @tailwind utilities;
 
 body {
-  font-family: sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f8f8f8; /* A light background that matches your image */
-  /* Remove any height/min-height settings here that might conflict */
 }
 
-/* Ensure html and body take full height */
-html,
-body {
-  height: 100%;
-}
 #app {
   /* If #app is present, ensure it also takes full height */
   height: 100%;
+}
+
+* {
+  font-family:
+    'Open Sans',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    sans-serif;
+}
+
+body,
+html {
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+}
+
+.p-component {
+  font-family: 'Open Sans', sans-serif;
 }
