@@ -184,9 +184,16 @@
               Consultancy
             </h2>
             <p class="text-lg leading-relaxed text-gray-300">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt elit in nunc
-              auctor convallis. Integer ullamcorper, nunc in aliquam blandit, nulla lectus laoreet
-              odio, eu iaculis nulla nibh quis ex.
+              I help organizations bridge the gap between complex technical systems and real
+              business outcomes. With 6+ years of experience in software engineering, product
+              management, and UX design, I transform IT challenges into competitive advantages.
+            </p>
+            <p class="text-lg leading-relaxed text-gray-300">
+              From strategic planning to full-stack development, I deliver end-to-end solutions that
+              optimize business processes, integrate seamlessly with existing systems, and
+              prioritize user experience. My proven track record includes 14+ successful projects
+              with measurable results—like improving developer productivity by 15% and enhancing
+              user satisfaction across enterprise solutions.
             </p>
           </div>
 
