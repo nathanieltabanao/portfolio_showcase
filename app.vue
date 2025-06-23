@@ -1,8 +1,8 @@
 <template>
-  <div class="flex min-h-screen flex-col">
+  <div class="flex flex-col">
     <AppHeader />
 
-    <main class="flex-grow"><NuxtPage /></main>
+    <main><NuxtPage /></main>
 
     <AppFooter />
   </div>

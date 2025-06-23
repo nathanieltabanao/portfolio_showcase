@@ -1,8 +1,8 @@
 <template>
   <div>
     <!-- Hi, I'm Nate Section - Full Screen Hero -->
-    <section class="relative flex min-h-screen flex-col justify-center">
-      <div class="mx-auto flex max-w-4xl flex-grow flex-col justify-center px-6 text-center">
+    <section class="relative flex h-[84vh] flex-col justify-center">
+      <div class="mx-auto flex max-w-4xl flex-col justify-center px-6 text-center">
         <h1 class="animate-fade-in mb-8 text-6xl font-bold text-gray-900 lg:text-8xl">
           Hi, I'm Nate
         </h1>
@@ -21,10 +21,19 @@
           </p>
         </div>
       </div>
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 transform animate-bounce">
+        <div class="flex h-10 w-6 justify-center rounded-full border-2 border-gray-400">
+          <div class="mt-2 h-3 w-1 animate-pulse rounded-full bg-gray-400"></div>
+        </div>
+      </div>
     </section>
 
     <!-- Design & Development Section -->
-    <section class="bg-black px-6 py-16">
+    <section
+      ref="section1"
+      class="scroll-section translate-y-20 bg-black px-6 py-16 opacity-0 transition-all duration-1000 ease-out"
+    >
       <div class="mx-auto max-w-7xl">
         <div class="grid items-center gap-12 lg:grid-cols-2">
           <!-- Left side - Content -->
@@ -40,7 +49,6 @@
               intuitive user experiences.
             </p>
           </div>
-
           <!-- Right side - Laptop Image -->
           <div class="relative">
             <div class="rotate-1 transform rounded-lg bg-gray-800 p-4 shadow-2xl">
@@ -57,7 +65,6 @@
                       <div class="h-3 w-3 rounded-full bg-green-500"></div>
                       <span class="ml-4 text-gray-400">main.js</span>
                     </div>
-
                     <!-- Code lines -->
                     <div class="space-y-1 text-gray-300">
                       <div class="flex">
@@ -95,14 +102,12 @@
                     </div>
                   </div>
                 </div>
-
                 <!-- Keyboard -->
                 <div class="relative mt-4 h-8 rounded-b-lg bg-gray-700">
                   <div class="absolute inset-x-0 top-1 mx-2 h-6 rounded bg-gray-600"></div>
                 </div>
               </div>
             </div>
-
             <!-- Hand typing effect -->
             <div
               class="absolute -right-4 -bottom-4 h-16 w-20 rotate-12 transform rounded-full bg-gradient-to-br from-amber-100 to-amber-200 opacity-80"
@@ -113,7 +118,10 @@
     </section>
 
     <!-- Product & Project Management Section -->
-    <section class="px-6 py-16">
+    <section
+      ref="section2"
+      class="scroll-section translate-y-20 px-6 py-16 opacity-0 transition-all duration-1000 ease-out"
+    >
       <div class="mx-auto max-w-7xl">
         <div class="grid items-center gap-12 lg:grid-cols-2">
           <!-- Left side - Image -->
@@ -127,7 +135,6 @@
                   <div class="mb-2 h-3 rounded bg-gray-200"></div>
                   <div class="h-3 w-3/4 rounded bg-gray-200"></div>
                 </div>
-
                 <!-- UI Day section -->
                 <div class="rounded-lg border-2 border-purple-300 bg-purple-100 p-4">
                   <div class="mb-3 font-semibold text-green-600">UI</div>
@@ -140,13 +147,11 @@
                     </div>
                   </div>
                 </div>
-
                 <!-- Video Headline -->
                 <div class="rounded border-2 border-gray-300 p-2">
                   <div class="text-xs text-gray-600">Video</div>
                   <div class="text-xs text-gray-600">Headline</div>
                 </div>
-
                 <!-- Description -->
                 <div class="rounded border-2 border-gray-300 p-2">
                   <div class="text-xs text-gray-600">Description</div>
@@ -154,7 +159,6 @@
               </div>
             </div>
           </div>
-
           <!-- Right side - Content -->
           <div class="space-y-6">
             <h2 class="text-4xl leading-tight font-bold text-gray-900 lg:text-5xl">
@@ -174,7 +178,10 @@
     </section>
 
     <!-- Business IT Consultancy Section -->
-    <section class="bg-black px-6 py-16">
+    <section
+      ref="section3"
+      class="scroll-section translate-y-20 bg-black px-6 py-16 opacity-0 transition-all duration-1000 ease-out"
+    >
       <div class="mx-auto max-w-7xl">
         <div class="grid items-center gap-12 lg:grid-cols-2">
           <!-- Left side - Content -->
@@ -196,7 +203,6 @@
               user satisfaction across enterprise solutions.
             </p>
           </div>
-
           <!-- Right side - Image -->
           <div class="relative">
             <div class="-rotate-1 transform rounded-lg bg-white p-6 shadow-2xl">
@@ -212,7 +218,6 @@
                       <div class="h-2 w-1/2 rounded bg-blue-200"></div>
                     </div>
                   </div>
-
                   <!-- Screen 2 - Purple -->
                   <div class="h-32 rounded-lg border-2 border-purple-400 bg-purple-200 p-3">
                     <div class="space-y-2">
@@ -227,7 +232,6 @@
                     </div>
                   </div>
                 </div>
-
                 <!-- Additional screens row -->
                 <div class="grid grid-cols-3 gap-2">
                   <div class="h-20 rounded border-2 border-green-300 bg-green-100 p-2">
@@ -253,7 +257,63 @@
 </template>
 
 <script setup>
-  // Component logic can be added here if needed
+  import { onMounted, onUnmounted } from 'vue'
+
+  let observer = null
+
+  onMounted(() => {
+    // Create intersection observer for scroll animations
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Add visible class when element comes into view
+            entry.target.classList.add('opacity-100')
+            entry.target.classList.remove('opacity-0', 'translate-y-20')
+
+            // Animate child elements with stagger effect
+            const animateElements = entry.target.querySelectorAll('.animate-on-scroll')
+            animateElements.forEach((el, index) => {
+              setTimeout(() => {
+                el.classList.add('opacity-100', 'translate-y-0')
+                el.classList.remove('opacity-0', 'translate-y-10')
+              }, index * 200) // 200ms delay between each element
+            })
+          }
+        })
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of element is visible
+        rootMargin: '0px 0px -100px 0px', // Start animation slightly before element is fully visible
+      }
+    )
+
+    // Observe all scroll sections
+    const scrollSections = document.querySelectorAll('.scroll-section')
+    scrollSections.forEach((section) => {
+      observer.observe(section)
+    })
+
+    // Add smooth scroll behavior to navigation links if you have any
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault()
+        const target = document.querySelector(this.getAttribute('href'))
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          })
+        }
+      })
+    })
+  })
+
+  onUnmounted(() => {
+    if (observer) {
+      observer.disconnect()
+    }
+  })
 </script>
 
 <style scoped>
@@ -274,5 +334,10 @@
 
   .animate-fade-in-delay {
     animation: fadeIn 1s ease-out 0.3s both;
+  }
+
+  /* Smooth scrolling for the entire page */
+  html {
+    scroll-behavior: smooth;
   }
 </style>
